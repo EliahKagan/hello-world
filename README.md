@@ -7,7 +7,7 @@ account since 2012 or so. But I haven't been using GitHub for any of my own
 repos... until today! 🙂
 
 <sub>
-  first part  
-  second part  
+  first part<br>
+  second part<br>
   third part
 </sub>
