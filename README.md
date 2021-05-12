@@ -5,3 +5,6 @@ I'm Eliah Kagan.
 I've been using Git for a while, and I've even had a GitHub
 account since 2012 or so. But I haven't been using GitHub for any of my own
 repos... until today! 🙂
+
+<small>Is `<small>` text supported?</small>
+  
