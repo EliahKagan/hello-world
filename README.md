@@ -76,7 +76,7 @@
 
 ### normalize.css
 
-### Open Sans<br>Open Sans Condensed
+### Open Sans<br> Open Sans Condensed
 
 ### SharpAvi
 
