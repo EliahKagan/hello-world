@@ -38,7 +38,7 @@
 
 #### Open Videos Folder
 
-#### Download x264vfw<br><!-- -->*or* Configure x264vfw (x64)<br><!-- -->*or* Configure x264vfw (x86)
+#### Download x264vfw<br> *or* Configure x264vfw (x64)<br> *or* Configure x264vfw (x86)
 
 #### About VidDraw&hellip;
 
