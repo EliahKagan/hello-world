@@ -14,6 +14,20 @@
 
 ## Usage Tips
 
+<details>
+  <summary><strong>A custom summary for expanding details.</strong></summary>
+  
+  This is a paragraph in a `details` element.
+  
+  This is a second such paragraph.
+  
+  ```csharp
+  Console.WriteLine("This is in a code block.");
+  ```
+  
+  And here's a paragraph. A third paragraph.
+</details>
+
 ### Drawing and Recording
 
 ### Save Location and Toast Notifications
