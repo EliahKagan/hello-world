@@ -1,4 +1,21 @@
-# hello-world - tutorial repo
+# hello-world - ~~tutorial repo~~ repo for bot and CI testing
+
+## 2023-01-27
+
+I'm converting this to a repo for bot and CI testing and making it public.
+
+Original contents follow, for posterity, and for richer content for CI and bots
+to scan/use, where applicable.
+
+Although unusual for a readme, writing this in changelog style may be useful to
+test bots/actions that automatically scan changelogs.
+
+Strikethrough in a heading is sometimes undesirable, since some tools that
+processing headings as text ignore formatting, including strikethrough,
+resulting in the opposite of the intended message. But this may be useful to
+test... you get the idea. 😼
+
+## 2019-07-05
 
 I'm Eliah Kagan.
 
