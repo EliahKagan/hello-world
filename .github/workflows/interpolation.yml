@@ -22,10 +22,10 @@ jobs:
       - name: Show how single quotes suppress escaping
         run: printf '%s\n' '%s\n'  # Doubling '%s\n', to see it.
 
-      - name: Show how single quotes suppress interpolation
+      - name: Show single quotes
         run:  printf '%s\n' '${{ env.text }}'
 
-      - name: Show how double quotes interpolate but suppress expansion
+      - name: Show double quotes
         run: printf '%s\n' "${{ env.text }}"
 
       - name: Show how, without quoting, interpolation and expansion occur
