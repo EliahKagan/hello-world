@@ -1,4 +1,4 @@
-# hello-world - ~~tutorial repo~~ repo for bot and CI testing
+# hello-world - ~~tutorial repo~~ bot and CI testing
 
 ## 2023-01-27
 
