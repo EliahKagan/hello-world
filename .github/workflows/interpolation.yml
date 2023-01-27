@@ -29,6 +29,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      # Interpolation?
-      - name: Run a command with a variable
+      # Interpolation without quotes
+      - name: Run a command with a variable, allowing expansion
         run: printf '%s\n' '%s\n' ${{ env.text }}  # Doubling '%s\n', to see it too.
+
+      # Interpolation with double quotes
+      - name: Run a command with a variable, suppressing expansion
+        run: printf '%s\n' '%s\n' "${{ env.text }}"  # Doubling '%s\n', to see it too.
