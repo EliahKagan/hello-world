@@ -1,0 +1,5 @@
+This is a file with a space in its name, for testing bots and CI actions.
+
+This file also has a line in it with trailing whitespace:
+
+Hello, world!   
