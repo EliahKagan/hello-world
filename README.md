@@ -13,7 +13,7 @@ test bots/actions that automatically scan changelogs.
 Strikethrough in a heading is sometimes undesirable, since some tools that
 processing headings as text ignore formatting, including strikethrough,
 resulting in the opposite of the intended message. But this may be useful to
-test... you get the idea. 😼
+test... you get the idea. <span title="Cat with Wry Smile">😼</span>
 
 ## 2019-07-05
 
@@ -21,4 +21,4 @@ I'm Eliah Kagan.
 
 I've been using Git for a while, and I've even had a GitHub
 account since 2012 or so. But I haven't been using GitHub for any of my own
-repos... until today! 🙂
+repos... until today! <span title="Slightly Smiling Face">🙂</span>
