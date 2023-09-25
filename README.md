@@ -2,7 +2,7 @@
 
 ## 2023-09-25
 
-Testing git-push-forward (from gitscripts repo): A, B, C
+Testing git-push-forward (from gitscripts repo): A, B, C, D
 
 ## 2023-01-27
 
