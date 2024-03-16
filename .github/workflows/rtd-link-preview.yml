@@ -1,0 +1,15 @@
+name: readthedocs/actions
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  documentation-links:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: readthedocs/actions/preview@v1
+      with:
+        project-slug: "bb40a0fa-a7e4-43c0-b70a-416ad8380a13"  # fake, for testing
