@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: readthedocs/actions/preview@v1
       with:
-        project-slug: "bb40a0fa-a7e4-43c0-b70a-416ad8380a13"  # fake, for testing
+        project-slug: "fake-slug"  # Fake slug for testing.
