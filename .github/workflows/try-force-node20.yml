@@ -6,7 +6,7 @@ on:
   #   types: [opened]
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
 
 jobs:
   show-node-version:
