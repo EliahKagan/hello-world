@@ -1,3 +1,5 @@
+name: Try to force Node 20
+
 on:
   pull_request:
   # pull_request_target:
