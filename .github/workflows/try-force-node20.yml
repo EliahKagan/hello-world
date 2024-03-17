@@ -11,8 +11,12 @@ env:
 jobs:
   show-node-version:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
     steps:
     - uses: actions/github-script@v6  # Normally uses Node 16.
       with:
         script: |
           console.log(`Node.js version: ${process.version}`);
+      env:
+        FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
