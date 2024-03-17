@@ -1,4 +1,4 @@
-name: readthedocs/actions
+name: Preview docs
 on:
   pull_request_target:
     types: [opened]
@@ -8,6 +8,7 @@ permissions:
 
 jobs:
   documentation-links:
+    name: Add link in PR
     runs-on: ubuntu-latest
     steps:
     - uses: readthedocs/actions/preview@v1
