@@ -6,6 +6,9 @@ on:
 permissions:
   pull-requests: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
+
 jobs:
   documentation-links:
     name: Add link in PR
