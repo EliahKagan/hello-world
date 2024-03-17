@@ -13,3 +13,6 @@ jobs:
     - uses: readthedocs/actions/preview@v1
       with:
         project-slug: "fake-slug"  # Fake slug for testing.
+        message-template: |
+          ----
+          📚 [Documentation preview]({docs-pr-index-url}) (see [all builds](https://readthedocs.org/projects/fake-slug/builds/)) 📚 
