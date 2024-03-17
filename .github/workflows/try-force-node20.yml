@@ -17,3 +17,4 @@ jobs:
       with:
         script: |
           console.log(`Node.js version: ${process.version}`);
+          console.log(`Tried forcing? ${process.env.FORCE_JAVASCRIPT_ACTIONS_TO_NODE20}`);
