@@ -1,0 +1,11 @@
+name: 'What is bash?'
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  check-bash:
+    runs-on: windows-latest
+
+    steps:
+    - name: Check what bash is
+      run: (Get-Command bash).path
