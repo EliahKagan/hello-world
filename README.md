@@ -1,5 +1,10 @@
 # hello-world - ~~tutorial repo~~ bot and CI testing
 
+## 2024-03-16
+
+This addition is for testing readthedocs/actions/preview and need not actually
+be merged.
+
 ## 2023-01-27
 
 I'm converting this to a repo for bot and CI testing and making it public.
