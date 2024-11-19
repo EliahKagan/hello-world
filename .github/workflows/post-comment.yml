@@ -13,7 +13,10 @@ jobs:
       - name: Post in discussion
         run: |
           url='https://github.com/EliahKagan/hello-world/discussions/34'
-          comment='This is a new top-level comment, posted from a CI job.'
+
+          comment='If this is posted, the CI job can comment on a locked discussion.
+
+          This is potentially useful for automatically posting updates in announcement threads.'
 
           [[ "$url" =~ ^https://github\.com/([^/]+)/([^/]+)/discussions/([0-9]+)$ ]]
           owner="${BASH_REMATCH[1]}"
