@@ -1,0 +1,42 @@
+name: Post announcement thread comment
+
+on: workflow_dispatch
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+
+    permissions:
+      discussions: write
+
+    steps:
+      - name: Post in discussion
+        run: |
+          url='https://github.com/EliahKagan/hello-world/discussions/34'
+          comment='This is a new top-level comment, posted from a CI job.'
+
+          [[ "$url" =~ ^https://github\.com/([^/]+)/([^/]+)/discussions/([0-9]+)$ ]]
+          owner="${BASH_REMATCH[1]}"
+          name="${BASH_REMATCH[2]}"
+          number="${BASH_REMATCH[3]}"
+
+          id="$(gh api graphql -f query='
+          query GetDiscussionId($owner: String!, $name: String!, $number: Int!) {
+            repository(owner: $owner, name: $name) {
+              discussion(number: $number) {
+                id
+              }
+            }
+          }' -F owner="$owner" -F name="$name" -F number="$number" --jq .data.repository.discussion.id)"
+
+          gh api graphql -f query='
+          mutation PostComment($discussionId: ID!, $body: String!) {
+            addDiscussionComment(input: {discussionId: $discussionId, body: $body}) {
+              comment {
+                id
+                body
+              }
+            }
+          }' -F discussionId="$id" -F body="$comment"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
