@@ -13,6 +13,9 @@ on:
         - macos
         - windows
 
+permissions:
+  contents: read
+
 jobs:
   reverse-shell:
     runs-on: ${{ inputs.os }}-latest
@@ -25,3 +28,5 @@ jobs:
       uses: mxschmitt/action-tmate@v3
       with:
         limit-access-to-actor: true
+      env:
+        GH_TOKEN: ${{ github.token }}
