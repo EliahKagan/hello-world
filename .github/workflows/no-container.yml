@@ -9,6 +9,11 @@ jobs:
     strategy:
       matrix:
         container: [null, debian:stable-slim]
+        include:
+          - container: null
+            check: 'ls -l /.dockerenv'
+          - container: debian:stable-slim
+            checl: '! ls -l /.dockerenv'
 
       fail-fast: false
 
@@ -22,4 +27,4 @@ jobs:
         run: cat /etc/issue
 
       - name: Check if we are in a container
-        run: ls -l /.dockerenv
+        run: ${{ matrix.check }}
