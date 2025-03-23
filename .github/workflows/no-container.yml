@@ -6,8 +6,9 @@ jobs:
   cktest:
     runs-on: ubuntu-latest
 
-    # Attempt empty `container` key to see what happens.
-    container:
+    # Leaving this empty means null, so it should have the same effect of not
+    # using a container.
+    container: null
 
     steps:
       - name: Check out repository
