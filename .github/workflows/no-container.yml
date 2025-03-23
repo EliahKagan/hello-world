@@ -6,9 +6,13 @@ jobs:
   cktest:
     runs-on: ubuntu-latest
 
-    # Leaving this empty means null, so it should have the same effect of not
-    # using a container.
-    container: null
+    strategy:
+      matrix:
+        container: [null, debian:stable-slim]
+
+      fail-fast: false
+
+    container: ${{ matrix.container }}
 
     steps:
       - name: Check out repository
