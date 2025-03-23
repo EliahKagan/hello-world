@@ -1,0 +1,17 @@
+name: Test of container key
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  cktest:
+    runs-on: ubuntu-latest
+
+    # Attempt empty `container` key to see what happens.
+    container:
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Show information about system
+        run: cat /etc/issue
