@@ -16,3 +16,6 @@ jobs:
 
       - name: Show information about system
         run: cat /etc/issue
+
+      - name: Check if we are in a container
+        run: ls -l /.dockerenv
