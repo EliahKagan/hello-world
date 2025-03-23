@@ -8,9 +8,9 @@ jobs:
 
     strategy:
       matrix:
-        container: [null, debian:stable-slim]
+        container: ['', debian:stable-slim]
         include:
-          - container: null
+          - container: ''
             check: '! ls -l /.dockerenv'
           - container: debian:stable-slim
             check: 'ls -l /.dockerenv'
