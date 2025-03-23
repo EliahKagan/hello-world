@@ -11,9 +11,9 @@ jobs:
         container: [null, debian:stable-slim]
         include:
           - container: null
-            check: 'ls -l /.dockerenv'
+            check: '! ls -l /.dockerenv'
           - container: debian:stable-slim
-            checl: '! ls -l /.dockerenv'
+            check: 'ls -l /.dockerenv'
 
       fail-fast: false
 
