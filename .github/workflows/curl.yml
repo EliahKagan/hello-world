@@ -19,8 +19,12 @@ jobs:
     steps:
     - name: Check from bash
       shell: bash
-      run: type curl
+      run: |
+        type curl
+        curl --version
 
     - name: Check from PowerShell
       shell: pwsh
-      run: gcm curl
+      run: |
+        gcm curl
+        curl --version
