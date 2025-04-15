@@ -1,0 +1,30 @@
+name: "Check for curl"
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  check-curl:
+    strategy:
+      matrix:
+        os:
+        - ubuntu-latest
+        - ubuntu-24.04-arm
+        - macos-latest
+        - windows-latest
+        - windows-11-arm
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Check from bash
+      shell: bash
+      run: |
+        type curl
+        curl --version
+
+    - name: Check from PowerShell
+      shell: pwsh
+      run: |
+        gcm curl
+        curl --version
