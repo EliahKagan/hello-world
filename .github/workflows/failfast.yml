@@ -7,6 +7,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: |
+      - name: External command reporting failure
+        run: |
+          echo a >t
+          git add t
+          echo b >>t
+          git diff --exit-code -- t
+          echo done
+      - name: Cmdlet reporting an error
+        run: |
           cat foo
           echo done
