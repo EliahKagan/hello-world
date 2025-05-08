@@ -7,13 +7,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
       - name: External command reporting failure
         run: |
           echo a >t
           git add t
           echo b >>t
-          git diff --exit-code -- t
-          echo done
+          git diff --exit-code -- t  # Should fail.
+          git log --oneline -1  # Should succeed, if run.
       - name: Cmdlet reporting an error
         run: |
           cat foo
