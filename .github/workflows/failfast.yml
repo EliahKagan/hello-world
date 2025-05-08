@@ -3,7 +3,7 @@ name: Test if PowerShell fails fast
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  show-node-version:
+  powershell-failfast:
     runs-on: windows-latest
 
     steps:
@@ -15,6 +15,7 @@ jobs:
           git add t
           echo b >>t
           git diff --exit-code -- t  # Should fail.
+          echo $LASTEXITCODE
           git log --oneline -1  # Should succeed, if run.
       - name: Cmdlet reporting an error
         run: |
