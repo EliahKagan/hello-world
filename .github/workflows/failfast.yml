@@ -1,0 +1,12 @@
+name: Test if PowerShell fails fast
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  show-node-version:
+    runs-on: windows-latest
+
+    steps:
+      - run: |
+          cat foo
+          echo done
