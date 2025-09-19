@@ -22,3 +22,9 @@ I'm Eliah Kagan.
 I've been using Git for a while, and I've even had a GitHub
 account since 2012 or so. But I haven't been using GitHub for any of my own
 repos... until today! <span title="Slightly Smiling Face">🙂</span>
+
+## Interesting Words
+
+This section contains some interesting words. It starts very simple and boring.
+
+Words are fundamental units of language used to convey meaning. They are sequences of characters that represent concepts, objects, actions, or ideas.
