@@ -17,14 +17,12 @@ jobs:
 
     steps:
     - name: List drives (PSDrive)
-      shell: pwsh
       run: |
         Get-PSDrive -PSProvider FileSystem |
           Select-Object Name, Root, Description, Provider, @{Name='IsNetwork';Expression={ $_.DisplayRoot -like '\\*' }}, Used, Free |
           Format-Table -AutoSize
 
     - name: List drives (Win32_LogicalDisk)
-      shell: pwsh
       run: |
         Write-Host "Win32_LogicalDisk (logical disks)"
         Get-CimInstance Win32_LogicalDisk |
@@ -39,7 +37,6 @@ jobs:
           Format-Table -AutoSize
 
     - name: List volumes (Get-Volume)
-      shell: pwsh
       run: |
         Write-Host "Get-Volume (modern Windows volumes)"
         Get-Volume |
@@ -47,13 +44,25 @@ jobs:
           Format-Table -AutoSize
 
     - name: List mapped network drives (net use)
-      shell: pwsh
       run: |
         Write-Host "Mapped network drives (net use)"
         net use
 
     - name: List logical drives (subst)
-      shell: pwsh
       run: |
         Write-Host "Logical drives (subst)"
         subst
+
+    - name: Temporary directories
+      run: |
+        Write-Host "Temporary directories"
+        Write-Host "TEMP: $env:TEMP"
+        Write-Host "TMP:  $env:TMP"
+
+    - name: Contents of the `a` directory on all drives that have one
+      run: |
+        $drives = Get-PSDrive -PSProvider FileSystem | Where-Object { Test-Path "$($_.Name):\a" }
+        foreach ($drive in $drives) {
+          Write-Host "Contents of drive $($drive.Name):\a"
+          Get-ChildItem "$($drive.Name):\a" | ForEach-Object { Write-Host $_.FullName }
+        }
