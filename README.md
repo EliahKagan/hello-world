@@ -1,5 +1,13 @@
 # hello-world - ~~tutorial repo~~ bot and CI testing
 
+## 2026-05-08
+
+Trying out the `Assisted-by` git trailer for AI disclosure, to see how (or
+whether) GitHub surfaces it. The commit that adds this section carries an
+`Assisted-by` trailer in the standard `Name <email>` shape — the same form
+`Co-authored-by` uses, which is what GitHub keys avatar lookup off of — with
+no other attribution trailers.
+
 ## 2023-01-27
 
 I'm converting this to a repo for bot and CI testing and making it public.
