@@ -1,0 +1,68 @@
+name: Show drives
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  show-drives:
+    strategy:
+      matrix:
+        os:
+        - windows-latest
+        - windows-11-arm
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: List drives (PSDrive)
+      run: |
+        Get-PSDrive -PSProvider FileSystem |
+          Select-Object Name, Root, Description, Provider, @{Name='IsNetwork';Expression={ $_.DisplayRoot -like '\\*' }}, Used, Free |
+          Format-Table -AutoSize
+
+    - name: List drives (Win32_LogicalDisk)
+      run: |
+        Write-Host "Win32_LogicalDisk (logical disks)"
+        Get-CimInstance Win32_LogicalDisk |
+          Select-Object @{Name='DeviceID';Expression={$_.DeviceID}},
+                        @{Name='VolumeName';Expression={$_.VolumeName}},
+                        @{Name='FileSystem';Expression={$_.FileSystem}},
+                        @{Name='ProviderName';Expression={$_.ProviderName}},
+                        @{Name='DriveType';Expression={$_.DriveType}},
+                        @{Name='IsNetwork';Expression={ $_.DriveType -eq 4 }},
+                        @{Name='FreeSpace';Expression={$_.FreeSpace}},
+                        @{Name='Size';Expression={$_.Size}} |
+          Format-Table -AutoSize
+
+    - name: List volumes (Get-Volume)
+      run: |
+        Write-Host "Get-Volume (modern Windows volumes)"
+        Get-Volume |
+          Select-Object DriveLetter, FileSystemLabel, FileSystem, @{Name='IsNetwork';Expression={ $_.DriveType -eq 'Network' }}, SizeRemaining, Size |
+          Format-Table -AutoSize
+
+    - name: List mapped network drives (net use)
+      run: |
+        Write-Host "Mapped network drives (net use)"
+        net use
+
+    - name: List logical drives (subst)
+      run: |
+        Write-Host "Logical drives (subst)"
+        subst
+
+    - name: Temporary directories
+      run: |
+        Write-Host "Temporary directories"
+        Write-Host "TEMP: $env:TEMP"
+        Write-Host "TMP:  $env:TMP"
+
+    - name: Contents of the `a` directory on all drives that have one
+      run: |
+        $drives = Get-PSDrive -PSProvider FileSystem | Where-Object { Test-Path "$($_.Name):\a" }
+        foreach ($drive in $drives) {
+          Write-Host "Contents of drive $($drive.Name):\a"
+          Get-ChildItem "$($drive.Name):\a" | ForEach-Object { Write-Host $_.FullName }
+        }
